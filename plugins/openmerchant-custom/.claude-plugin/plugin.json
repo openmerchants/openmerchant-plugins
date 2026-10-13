@@ -1,0 +1,20 @@
+{
+  "name": "openmerchant-custom",
+  "displayName": "OpenMerchant Custom",
+  "version": "1.0.0",
+  "description": "Every OpenMerchant API tool for your account, including submitting vendor invoices, approving purchases, and changing budgets and spending policies. Sign in with your OpenMerchant account; coding agents can use a secret API key instead.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/account",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["payables", "invoices", "vendor-payments", "openmerchant"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://openmerchant.dev/connect/account",
+  "supportUrl": "https://openmerchant.dev/support",
+  "privacyPolicyUrl": "https://openmerchant.dev/privacy",
+  "termsOfServiceUrl": "https://openmerchant.dev/terms"
+}

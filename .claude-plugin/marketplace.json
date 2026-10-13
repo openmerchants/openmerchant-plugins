@@ -1,0 +1,31 @@
+{
+  "name": "openmerchant",
+  "owner": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "description": "OpenMerchant plugins: Shop with OpenMerchant for buyers, and OpenMerchant for sellers and businesses.",
+  "plugins": [
+    {
+      "name": "shop-with-openmerchant",
+      "source": "./plugins/shop-with-openmerchant",
+      "category": "shopping"
+    },
+    {
+      "name": "shop-with-openmerchant-custom",
+      "source": "./plugins/shop-with-openmerchant-custom",
+      "category": "shopping"
+    },
+    {
+      "name": "openmerchant",
+      "source": "./plugins/openmerchant",
+      "category": "finance"
+    },
+    {
+      "name": "openmerchant-custom",
+      "source": "./plugins/openmerchant-custom",
+      "category": "finance"
+    }
+  ]
+}

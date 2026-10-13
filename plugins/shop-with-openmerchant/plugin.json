@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "shop-with-openmerchant",
+  "version": "1.0.0",
+  "description": "Find products from merchants that sell through OpenMerchant, compare options, request quotes, and prepare a cart and checkout. The shopper finishes paying on the merchant's site; this plugin never takes payment.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["shopping", "commerce", "checkout", "openmerchant"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Shop with OpenMerchant",
+        "shortDescription": "Find and compare products",
+        "longDescription": "Search products and merchants that sell through OpenMerchant, compare variants, prices and availability, request quotes for items priced on request, and prepare a cart and checkout. When the checkout is ready, the plugin links to the merchant's own site to finish paying. It never takes payment or asks for card details, and it needs no account.",
+        "developerName": "OpenMerchant",
+        "category": "Shopping",
+        "capabilities": ["Search products", "Compare offers", "Request quotes", "Prepare checkouts"],
+        "websiteURL": "https://openmerchant.dev/connect/shop",
+        "supportURL": "https://openmerchant.dev/support",
+        "privacyPolicyURL": "https://openmerchant.dev/privacy",
+        "termsOfServiceURL": "https://openmerchant.dev/terms",
+        "defaultPrompt": [
+          "Find a ceramic pour-over coffee dripper under $40.",
+          "Which stores here sell trail running shoes?",
+          "Prepare a checkout for two of the large ones, shipped to my office."
+        ],
+        "brandColor": "#0A5CFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

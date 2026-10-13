@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "dev.openmerchant/account",
+  "title": "OpenMerchant",
+  "description": "Read an OpenMerchant account's vendor invoices and payments. It never starts a payment.",
+  "version": "1.0.0",
+  "websiteUrl": "https://openmerchant.dev/connect/account",
+  "icons": [
+    {
+      "src": "https://openmerchant.dev/brand/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.openmerchant.dev/mcp/marketplace/v1"
+    }
+  ]
+}

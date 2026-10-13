@@ -1,0 +1,20 @@
+{
+  "name": "shop-with-openmerchant-custom",
+  "displayName": "Shop with OpenMerchant Custom",
+  "version": "1.0.0",
+  "description": "Find products from merchants that sell through OpenMerchant, prepare a checkout, and complete the purchase in the conversation with a payment credential your app holds. Card numbers never pass through the chat.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["shopping", "commerce", "checkout", "openmerchant"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://openmerchant.dev/connect/shop",
+  "supportUrl": "https://openmerchant.dev/support",
+  "privacyPolicyUrl": "https://openmerchant.dev/privacy",
+  "termsOfServiceUrl": "https://openmerchant.dev/terms"
+}

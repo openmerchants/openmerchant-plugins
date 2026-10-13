@@ -1,0 +1,56 @@
+{
+  "name": "openmerchant",
+  "interface": {
+    "displayName": "OpenMerchant"
+  },
+  "plugins": [
+    {
+      "name": "shop-with-openmerchant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shop-with-openmerchant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_FIRST_USE"
+      },
+      "category": "Shopping"
+    },
+    {
+      "name": "shop-with-openmerchant-custom",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shop-with-openmerchant-custom"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_FIRST_USE"
+      },
+      "category": "Shopping"
+    },
+    {
+      "name": "openmerchant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/openmerchant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    },
+    {
+      "name": "openmerchant-custom",
+      "source": {
+        "source": "local",
+        "path": "./plugins/openmerchant-custom"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    }
+  ]
+}

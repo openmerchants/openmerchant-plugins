@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shop-with-openmerchant-custom": {
+      "type": "http",
+      "url": "https://openmerchant.dev/mcp"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "shop-with-openmerchant-custom",
+  "version": "1.0.0",
+  "description": "Find products from merchants that sell through OpenMerchant, prepare a checkout, and complete the purchase in the conversation with a payment credential your app holds. Card numbers never pass through the chat.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["shopping", "commerce", "checkout", "openmerchant"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Shop with OpenMerchant Custom",
+        "shortDescription": "Search, check out and pay",
+        "longDescription": "Everything in Shop with OpenMerchant, plus completing the purchase in the conversation when your app can supply a payment credential the merchant accepts, such as a Stripe Shared Payment Token. Without one, the shopper finishes on the merchant's site. Card numbers never pass through the chat, and no OpenMerchant account is needed.",
+        "developerName": "OpenMerchant",
+        "category": "Shopping",
+        "capabilities": ["Search products", "Request quotes", "Prepare checkouts", "Complete purchases"],
+        "websiteURL": "https://openmerchant.dev/connect/shop",
+        "supportURL": "https://openmerchant.dev/support",
+        "privacyPolicyURL": "https://openmerchant.dev/privacy",
+        "termsOfServiceURL": "https://openmerchant.dev/terms",
+        "defaultPrompt": [
+          "Find a ceramic pour-over coffee dripper under $40.",
+          "Which stores here sell trail running shoes?",
+          "Check out the cart and ship it to my office."
+        ],
+        "brandColor": "#0A5CFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

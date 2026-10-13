@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "openmerchant": {
+      "type": "http",
+      "url": "https://api.openmerchant.dev/mcp/marketplace/v1"
+    }
+  }
+}

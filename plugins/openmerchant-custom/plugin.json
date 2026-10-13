@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "openmerchant-custom",
+  "version": "1.0.0",
+  "description": "Every OpenMerchant API tool for your account, including submitting vendor invoices, approving purchases, and changing budgets and spending policies. Sign in with your OpenMerchant account; coding agents can use a secret API key instead.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/account",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["payables", "invoices", "vendor-payments", "openmerchant"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "OpenMerchant Custom",
+        "shortDescription": "Every OpenMerchant API tool",
+        "longDescription": "Every OpenMerchant API tool for one account: submit and track vendor invoices, read payment status, manage purchase intents and approvals, payment methods, budgets and spending policies, and your merchant catalog. Submitted invoices from known vendors within your limits can be paid automatically under your account's rules. You sign in with your OpenMerchant account and choose test or live mode.",
+        "developerName": "OpenMerchant",
+        "category": "Finance",
+        "capabilities": ["Submit vendor invoices", "Read payment status", "Manage purchases", "Manage budgets and policies"],
+        "websiteURL": "https://openmerchant.dev/connect/account",
+        "supportURL": "https://openmerchant.dev/support",
+        "privacyPolicyURL": "https://openmerchant.dev/privacy",
+        "termsOfServiceURL": "https://openmerchant.dev/terms",
+        "defaultPrompt": [
+          "Submit this invoice from Copperline to OpenMerchant.",
+          "Which vendor invoices are waiting for me?",
+          "Did the payment to Harborline go through?"
+        ],
+        "brandColor": "#0A5CFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
