@@ -1,6 +1,6 @@
 ---
 name: check-vendor-payments
-description: Answer questions about an OpenMerchant account's vendor invoices and payments, such as what got paid, what is scheduled, what is waiting for a person, and which vendors still need to send payout details. Use when the user asks about bills, vendor invoices, payables, or payment status in OpenMerchant.
+description: Answer questions about an OpenMerchant account's vendor invoices and payments, such as what got paid, what is scheduled, what is waiting for a person and why, and which vendors still need to send payout details. Use when the user asks about bills, vendor invoices, payables, holds, or payment status in OpenMerchant.
 ---
 
 # Check vendor payments
@@ -16,8 +16,9 @@ live mode come from the sign-in, not from the conversation.
 - `v1_list_invoices` lists the account's invoices. Filter by `status`, by
   `processing_status`, by `source` (`gmail`, `manual`, or `api`), or by vendor with
   `issuer_profile_id`. Page with `limit` and `offset`; the response has a `total`.
-- `v1_get_invoice` reads one invoice: vendor, amounts, dates, `status`, its
-  `review_url`, and the IDs of its payments.
+  Each row has its `status`, `review_reasons`, and `review_url`.
+- `v1_get_invoice` reads one invoice: vendor, amounts, dates, `status`, why it waits
+  for a person (`review_reasons`), its `review_url`, and the IDs of its payments.
 
 An invoice has two separate lifecycles, so don't mix them up:
 
@@ -36,10 +37,16 @@ Amounts are in minor units of the invoice's currency, so 12345 with `USD` is $12
 - **What got paid?** `v1_list_invoices` with `status` `paid`.
 - **What's scheduled?** `status` `scheduled` or `awaiting_funds`.
 - **What's waiting for a person?** `status` `awaiting_human` or
-  `needs_extraction_review`. Give the user each invoice's `review_url`: that dashboard
-  page shows why it waits, and it is where a person decides. The tools say that an
-  invoice is waiting but not always why, so don't guess a reason the results don't
-  state.
+  `needs_extraction_review`. Say why from each invoice's `review_reasons`, and give
+  the user its `review_url`: that dashboard page is where a person decides.
+- **Why is an invoice on hold?** Find it with `v1_list_invoices` (by vendor with
+  `issuer_profile_id`, or by `status`), then read its `review_reasons`, on the row or
+  from `v1_get_invoice`. Each reason has a `code`, such as `bank_details_changed`, and
+  a plain-words `description`, such as "Bank details changed", the words the dashboard
+  uses. They come most serious first, so lead with the first. The list is filled only
+  while the invoice waits for a person. An invoice in `needs_extraction_review` with
+  no reasons waits because some of its fields couldn't be read. Don't add reasons the
+  results don't state.
 - **What happened to a payment?** `v1_list_transfer_requests` finds the transfer
   request; `v1_get_transfer_request` with `include` set to `executions` shows its
   payment attempts, and `v1_list_transfer_executions` pages through more. Each attempt
