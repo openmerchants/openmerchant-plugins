@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "is-github-actions-down",
+  "version": "1.0.0",
+  "description": "Check GitHub Actions status using official incidents and unusual visitor interest, with clear evidence and stale-data timestamps. Public and read-only.",
+  "author": {
+    "name": "OpenMerchant",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://isgithubactionsdown.com/agents",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": [
+    "github-actions",
+    "status",
+    "ci",
+    "outages"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Is GitHub Actions down?",
+        "shortDescription": "Check GitHub Actions status",
+        "longDescription": "Check GitHub Actions status using official incidents and unusual visitor interest, with clear evidence and stale-data timestamps. Public and read-only.",
+        "developerName": "OpenMerchant",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read GitHub Actions status",
+          "Read active incidents"
+        ],
+        "websiteURL": "https://isgithubactionsdown.com/agents",
+        "privacyPolicyURL": "https://isgithubactionsdown.com/how-it-works#privacy",
+        "supportURL": "https://github.com/openmerchants/openmerchant-plugins/issues",
+        "defaultPrompt": [
+          "Is GitHub Actions down right now?",
+          "Is there an incident affecting my queued workflows?"
+        ],
+        "brandColor": "#18794E",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

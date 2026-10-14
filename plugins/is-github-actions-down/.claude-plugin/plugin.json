@@ -1,0 +1,23 @@
+{
+  "name": "is-github-actions-down",
+  "version": "1.0.0",
+  "description": "Check GitHub Actions status using official incidents and unusual visitor interest, with clear evidence and stale-data timestamps. Public and read-only.",
+  "author": {
+    "name": "OpenMerchant",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://isgithubactionsdown.com/agents",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": [
+    "github-actions",
+    "status",
+    "ci",
+    "outages"
+  ],
+  "displayName": "Is GitHub Actions down?",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://isgithubactionsdown.com/agents",
+  "supportUrl": "https://github.com/openmerchants/openmerchant-plugins/issues",
+  "privacyPolicyUrl": "https://isgithubactionsdown.com/how-it-works#privacy"
+}

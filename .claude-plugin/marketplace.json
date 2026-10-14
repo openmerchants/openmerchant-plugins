@@ -5,7 +5,7 @@
     "email": "support@openmerchant.dev",
     "url": "https://openmerchant.dev"
   },
-  "description": "OpenMerchant plugins: Shop with OpenMerchant for buyers, and OpenMerchant for sellers and businesses.",
+  "description": "OpenMerchant plugins for shopping, business payments, and developer tools.",
   "plugins": [
     {
       "name": "shop-with-openmerchant",
@@ -26,6 +26,11 @@
       "name": "openmerchant-custom",
       "source": "./plugins/openmerchant-custom",
       "category": "finance"
+    },
+    {
+      "name": "is-github-actions-down",
+      "source": "./plugins/is-github-actions-down",
+      "category": "development"
     }
   ]
 }

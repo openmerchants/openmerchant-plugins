@@ -8,6 +8,7 @@ speaks the Model Context Protocol (MCP).
 
 | Plugin | For | What it does | MCP server | Sign-in |
 | --- | --- | --- | --- | --- |
+| `is-github-actions-down` | Developers | Check official Actions incidents and possible disruptions; read-only | `https://isgithubactionsdown.com/mcp` | None |
 | `shop-with-openmerchant` | Buyers | Find products, get quotes, and prepare a checkout; the shopper pays on the merchant's site | `https://openmerchant.dev/mcp/marketplace` (coming soon) | None |
 | `shop-with-openmerchant-custom` | Buyers | All of the above, plus paying in the conversation with a payment credential your app holds | `https://openmerchant.dev/mcp` | None |
 | `openmerchant` | Sellers and businesses | Ask what got paid and what is waiting across your vendor invoices; never starts a payment | `https://api.openmerchant.dev/mcp/marketplace/v1` | OpenMerchant account |

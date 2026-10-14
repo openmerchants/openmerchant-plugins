@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "github-actions-status": {
+      "type": "http",
+      "url": "https://isgithubactionsdown.com/mcp"
+    }
+  }
+}
