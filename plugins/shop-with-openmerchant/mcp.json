@@ -7,7 +7,8 @@
       "extensions": {
         "com.openai": {
           "auth": {
-            "type": "none"
+            "type": "oauth",
+            "client": { "mode": "cimd" }
           }
         }
       }
