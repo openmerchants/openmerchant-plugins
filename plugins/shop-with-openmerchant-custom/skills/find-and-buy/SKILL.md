@@ -67,7 +67,8 @@ For a quote-required, quoted-price, custom, or live-booking item:
 ## Build the cart
 
 - Call `shop_create_cart` once the shopper has chosen. Every item must come from the
-  same merchant, so make one cart per merchant.
+  same merchant, so make one cart per merchant. Pass the `attribution_id` from the
+  search that found the items, so the merchant can credit that search with the sale.
 - To change quantities or items, call `shop_update_cart` rather than creating a
   second cart.
 - If the shopper changes their mind, release the cart with `shop_cancel_cart`.
