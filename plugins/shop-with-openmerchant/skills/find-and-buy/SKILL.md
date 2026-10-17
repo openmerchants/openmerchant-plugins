@@ -30,7 +30,10 @@ catalog search for actual offerings, prices, availability, and requirements.
 - `shop_search_merchants` and `shop_get_merchant` when the question is about a store
   rather than a product.
 
-Show a short list with prices and merchants, and let the shopper choose.
+Show the few results that fit with `shop_show_products`: pass each product's `id`
+and the `attribution_id` the search returned. The shopper sees them as product cards
+(or as a short list in apps without cards), so don't repeat every detail; let the
+shopper choose.
 
 ## Answer price and availability from the exact item
 
