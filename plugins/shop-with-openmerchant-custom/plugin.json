@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant-custom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and complete purchases with an app-held payment credential.",
   "author": {
     "name": "OpenMerchant",
