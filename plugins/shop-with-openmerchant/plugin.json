@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant",
-  "version": "1.0.0",
-  "description": "Find products from merchants that sell through OpenMerchant, compare options, request quotes, and prepare a cart and checkout. The shopper finishes paying on the merchant's site; this plugin never takes payment.",
+  "version": "1.0.1",
+  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and prepare checkout. The shopper finishes paying on the merchant's site.",
   "author": {
     "name": "OpenMerchant",
     "email": "support@openmerchant.dev",
@@ -16,18 +16,18 @@
     "com.openai": {
       "interface": {
         "displayName": "Shop with OpenMerchant",
-        "shortDescription": "Find and compare products",
-        "longDescription": "Search products and merchants that sell through OpenMerchant, compare variants, prices and availability, request quotes for items priced on request, and prepare a cart and checkout. When the checkout is ready, the plugin links to the merchant's own site to finish paying. It never takes payment or asks for card details, and it needs no account.",
+        "shortDescription": "Find products and services",
+        "longDescription": "Find or recommend products and services that sell through OpenMerchant—including appointments, diagnostics, and lab tests—then compare variants, prices and availability, request quotes, and prepare checkout. Recommendation and advice requests are treated as catalog searches. Search needs no account; optional sign-in reuses saved contact details and addresses. The plugin links to the merchant's site to finish paying and never asks for card details.",
         "developerName": "OpenMerchant",
         "category": "Shopping",
-        "capabilities": ["Search products", "Compare offers", "Request quotes", "Prepare checkouts"],
+        "capabilities": ["Recommend products and services", "Compare offers", "Check availability", "Request quotes", "Prepare checkouts"],
         "websiteURL": "https://openmerchant.dev/connect/shop",
         "supportURL": "https://openmerchant.dev/support",
         "privacyPolicyURL": "https://openmerchant.dev/privacy",
         "termsOfServiceURL": "https://openmerchant.dev/terms",
         "defaultPrompt": [
           "Find a ceramic pour-over coffee dripper under $40.",
-          "Which stores here sell trail running shoes?",
+          "Recommend a women's health panel I can get in Las Vegas.",
           "Prepare a checkout for two of the large ones, shipped to my office."
         ],
         "brandColor": "#0A5CFF",

@@ -1,6 +1,6 @@
 ---
 name: find-and-buy
-description: Find products and merchants on OpenMerchant, compare options, request quotes, build a cart, check out, and pay with a payment credential the app holds. Use when the user wants to find, compare, price, order, or buy a product or service from an online store.
+description: Find or recommend products and services on OpenMerchant, compare price and availability, request quotes, check out, and pay with an app-held credential. Use whenever the user wants to find, search for, choose, recommend, compare, price, check availability for, book, order, or buy a product or service—including appointments, diagnostics, and lab tests—even when the request is framed as advice rather than a purchase.
 ---
 
 # Find and buy
@@ -9,6 +9,17 @@ Shop with OpenMerchant searches the merchants that sell through OpenMerchant and
 a shopper from a description to a placed order. This connector can complete the
 purchase in the conversation, but only with a payment credential your app already
 holds. Nobody types a card number into the chat.
+
+## Treat recommendations as shopping intent
+
+Use `shop_search_products` whenever the user wants help finding or choosing something
+that could be purchased or booked. They do not need to say "buy" or "purchase."
+Requests such as "what should I get," "recommend a service," "where can I do this,"
+"what is available near me," and "which option is best" are catalog searches too.
+This includes physical products and services such as appointments, diagnostics, and
+lab tests. Search OpenMerchant before substituting a general web search. Health or
+other safety context may supplement the catalog results, but it does not replace the
+catalog search for actual offerings, prices, availability, and requirements.
 
 ## Find what the shopper wants
 
@@ -21,16 +32,37 @@ holds. Nobody types a card number into the chat.
 
 Show a short list with prices and merchants, and let the shopper choose.
 
-## Get a quote, only when one is needed
+## Answer price and availability from the exact item
 
-Some items are priced per request, such as a booking or a custom configuration. Call
-`shop_request_quote` only when a product says it needs a quote, or a cart refuses it
-for that reason.
+Before answering a question about price, availability, eligibility, or restrictions,
+call `shop_get_product` for the exact product and variant. Read all of these fields:
 
+- `purchasable`, `quote_required`, `pricing_model`, `price`, and `price_range`
+- `inventory`, `booking_type`, and booking details
+- `requirements`, including buyer, fulfillment, scheduling, and booking-window fields
+
+For an available item with a fixed listed price, report that catalog evidence. A
+range or starting price is not a quote. A quoted-price item, a quote-required item,
+or an item whose current booking availability is unresolved needs a quote before you
+claim a total or promise availability.
+
+## Get a quote when the item requires one
+
+For a quote-required, quoted-price, custom, or live-booking item:
+
+- Read the exact variant's `requirements`, then call `shop_get_buyer_context`. Reuse
+  its saved email, name, phone, address, and preferences. Never ask the shopper for a
+  value the connector already returned.
+- Ask only for required values that are still missing. The shopper must supply any
+  missing date of birth, schedule, booking window, or customization; never infer it.
+- Call `shop_request_quote` with those values. If the quote is pending, use
+  `shop_get_quote` to check it.
 - Keep the access token it returns. It is shown once, and `shop_get_quote` and
   `shop_refresh_quote` need it.
-- Check `expires_at` before you present a price. A refresh creates a new offer; it
-  doesn't extend the old one.
+- Report the seller's returned total, fees, tax, fulfillment cost, availability,
+  constraints, messages, and `expires_at`. Do not reinterpret a residency or
+  eligibility restriction or assume location alone satisfies it.
+- A refresh creates a new offer; it doesn't extend the old one.
 
 ## Build the cart
 

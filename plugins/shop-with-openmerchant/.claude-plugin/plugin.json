@@ -1,8 +1,8 @@
 {
   "name": "shop-with-openmerchant",
   "displayName": "Shop with OpenMerchant",
-  "version": "1.0.0",
-  "description": "Find products from merchants that sell through OpenMerchant, compare options, request quotes, and prepare a cart and checkout. The shopper finishes paying on the merchant's site; this plugin never takes payment.",
+  "version": "1.0.1",
+  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and prepare checkout. The shopper finishes paying on the merchant's site.",
   "author": {
     "name": "OpenMerchant",
     "email": "support@openmerchant.dev",
