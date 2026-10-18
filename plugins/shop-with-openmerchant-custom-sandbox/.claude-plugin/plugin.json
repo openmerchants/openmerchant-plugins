@@ -1,0 +1,20 @@
+{
+  "name": "shop-with-openmerchant-custom-sandbox",
+  "displayName": "Shop with OpenMerchant Custom (Sandbox)",
+  "version": "1.0.2",
+  "description": "Test mode of Shop with OpenMerchant Custom: find products or services in the OpenMerchant sandbox catalog, request quotes, and complete test purchases with an app-held test payment credential.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["shopping", "commerce", "checkout", "openmerchant", "sandbox", "testing"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://openmerchant.dev/connect/shop",
+  "supportUrl": "https://openmerchant.dev/support",
+  "privacyPolicyUrl": "https://openmerchant.dev/privacy",
+  "termsOfServiceUrl": "https://openmerchant.dev/terms"
+}

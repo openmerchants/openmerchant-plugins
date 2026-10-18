@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "shop-with-openmerchant-custom-sandbox",
+  "version": "1.0.2",
+  "description": "Test mode of Shop with OpenMerchant Custom: find products or services in the OpenMerchant sandbox catalog, request quotes, and complete test purchases with an app-held test payment credential.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": ["shopping", "commerce", "checkout", "openmerchant", "sandbox", "testing"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Shop with OpenMerchant Custom (Sandbox)",
+        "shortDescription": "Test shopping and checkout",
+        "longDescription": "The test-mode version of Shop with OpenMerchant Custom. Find or recommend products and services in the OpenMerchant sandbox catalog, compare price and availability, request quotes, and complete test purchases when your app supplies a test payment credential. Install it beside Shop with OpenMerchant Custom to try changes without touching live merchants or live payments. Search needs no account; optional sign-in reuses saved contact details and addresses. Card numbers never pass through the chat.",
+        "developerName": "OpenMerchant",
+        "category": "Shopping",
+        "capabilities": ["Recommend products and services", "Check availability", "Request quotes", "Prepare checkouts", "Complete test purchases"],
+        "websiteURL": "https://openmerchant.dev/connect/shop",
+        "supportURL": "https://openmerchant.dev/support",
+        "privacyPolicyURL": "https://openmerchant.dev/privacy",
+        "termsOfServiceURL": "https://openmerchant.dev/terms",
+        "defaultPrompt": [
+          "Find a ceramic pour-over coffee dripper under $40.",
+          "Recommend a women's health panel I can get in Las Vegas.",
+          "Check out the cart and ship it to my office."
+        ],
+        "brandColor": "#0A5CFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

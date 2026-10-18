@@ -29,6 +29,18 @@
       "category": "Shopping"
     },
     {
+      "name": "shop-with-openmerchant-custom-sandbox",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shop-with-openmerchant-custom-sandbox"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_FIRST_USE"
+      },
+      "category": "Shopping"
+    },
+    {
       "name": "openmerchant",
       "source": {
         "source": "local",

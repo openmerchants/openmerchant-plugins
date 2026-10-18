@@ -11,13 +11,14 @@ speaks the Model Context Protocol (MCP).
 | `is-github-actions-down` | Developers | Check official Actions incidents and possible disruptions; read-only | `https://isgithubactionsdown.com/mcp` | None |
 | `shop-with-openmerchant` | Buyers | Find products, get quotes, and prepare a checkout; the shopper pays on the merchant's site | `https://openmerchant.dev/mcp/marketplace` (coming soon) | None |
 | `shop-with-openmerchant-custom` | Buyers | All of the above, plus paying in the conversation with a payment credential your app holds | `https://openmerchant.dev/mcp` | None |
+| `shop-with-openmerchant-custom-sandbox` | Developers testing buyer flows | `shop-with-openmerchant-custom` in test mode, with the sandbox catalog and test payments; installs beside it | `https://sandbox.openmerchant.dev/mcp` | None |
 | `openmerchant` | Sellers and businesses | Ask what got paid and what is waiting across your vendor invoices; never starts a payment | `https://api.openmerchant.dev/mcp/marketplace/v1` | OpenMerchant account |
 | `openmerchant-custom` | Sellers and businesses | Every OpenMerchant API tool, including submitting vendor invoices | `https://api.openmerchant.dev/mcp/v1` | OpenMerchant account, or a secret API key |
 
 `shop-with-openmerchant` and `openmerchant` are the versions submitted to the Claude and
-ChatGPT directories. The two `-custom` plugins are available only here. Each plugin's
-README says what it sends where. The `shop-with-openmerchant` server address goes live
-with its directory listing; until then, use `shop-with-openmerchant-custom`.
+ChatGPT directories. The `-custom` and `-sandbox` plugins are available only here. Each
+plugin's README says what it sends where. The `shop-with-openmerchant` server address goes
+live with its directory listing; until then, use `shop-with-openmerchant-custom`.
 
 ## Install
 
@@ -27,6 +28,9 @@ with its directory listing; until then, use `shop-with-openmerchant-custom`.
 /plugin marketplace add openmerchants/openmerchant-plugins
 /plugin install shop-with-openmerchant-custom@openmerchant
 ```
+
+For test mode, also install `shop-with-openmerchant-custom-sandbox@openmerchant`. It
+declares its own server name, so both can be installed at once.
 
 **Claude** (claude.ai and the desktop app): Customize → Plugins → Add → Add marketplace,
 then enter `https://github.com/openmerchants/openmerchant-plugins`.

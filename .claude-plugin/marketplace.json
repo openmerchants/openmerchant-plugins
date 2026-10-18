@@ -18,6 +18,11 @@
       "category": "shopping"
     },
     {
+      "name": "shop-with-openmerchant-custom-sandbox",
+      "source": "./plugins/shop-with-openmerchant-custom-sandbox",
+      "category": "shopping"
+    },
+    {
       "name": "openmerchant",
       "source": "./plugins/openmerchant",
       "category": "finance"

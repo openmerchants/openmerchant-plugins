@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shop-with-openmerchant-custom-sandbox": {
+      "type": "http",
+      "url": "https://sandbox.openmerchant.dev/mcp"
+    }
+  }
+}
