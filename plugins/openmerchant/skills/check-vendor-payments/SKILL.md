@@ -1,6 +1,6 @@
 ---
 name: check-vendor-payments
-description: Answer questions about an OpenMerchant account's vendor invoices and payments, such as what got paid, what is scheduled, what is waiting for a person and why, and which vendors still need to send payout details. Use when the user asks about bills, vendor invoices, payables, holds, or payment status in OpenMerchant.
+description: Check the connected business account's supplier bills, vendor invoices, payment status, holds, missing payout details, and stuck intake. Use for "which bills were paid", "why is this invoice stuck", or "what needs my review", even when OpenMerchant is not named. General accounting explanations and personal shopping recommendations do not need these account tools.
 ---
 
 # Check vendor payments
@@ -10,6 +10,16 @@ requests, and the payments made for them. It can also ask a vendor for missing p
 details. It can't submit an invoice, and it can't approve, pay, cancel, or retry a
 payment; people do those in the OpenMerchant dashboard. The account and the test or
 live mode come from the sign-in, not from the conversation.
+
+## Start with the account evidence
+
+For an account-status question, call the matching read tool without asking whether
+to use the connector. Use an invoice ID already in the conversation with
+`v1_get_invoice`; otherwise begin with `v1_list_invoices` and only known filters.
+Do not ask for a vendor ID before making a useful list call. The connection supplies
+the account and mode. If sign-in is required, follow the tool's authentication step.
+For example, "Did our bills go through?" starts with invoice or transfer reads;
+"What does accounts payable mean?" is an explanation and needs no account access.
 
 ## Find invoices
 

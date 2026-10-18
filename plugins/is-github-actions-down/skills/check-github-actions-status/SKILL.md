@@ -5,6 +5,10 @@ description: Check whether GitHub Actions is experiencing an outage or disruptio
 
 # Check GitHub Actions status
 
+"Is Actions down?", "Are builds queued for everyone?", and "Could this be a GitHub
+outage?" call the status tool even when the user does not name this plugin. A YAML
+syntax error in one workflow or an explanation of CI does not need an outage check.
+
 Call `get_github_actions_status` with an empty object. This public read-only tool
 needs no GitHub account, repository information, or credentials. If the MCP tool
 is unavailable, fetch `https://isgithubactionsdown.com/api/status`. If neither

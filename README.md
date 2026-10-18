@@ -47,6 +47,16 @@ Then open `/plugins` in Codex to install a plugin.
 https://openmerchant.dev/connect/shop and https://openmerchant.dev/connect/account cover
 each app.
 
+## Receive updates
+
+Server behavior and tool descriptions update when OpenMerchant deploys the MCP
+server and your client refreshes its metadata. Installed skills and plugin
+descriptions update separately: refresh the marketplace and update the installed
+plugin in your client, then start a new conversation. A fresh conversation alone
+does not install a plugin update. Git-installed Claude Code plugins are cached
+by version, so each skill update includes a version bump in both manifests; see
+[Claude Code's update guidance](https://code.claude.com/docs/en/plugins/host-marketplace#release-a-new-version).
+
 ## What's here
 
 - `.claude-plugin/marketplace.json`: the Claude marketplace, named `openmerchant`

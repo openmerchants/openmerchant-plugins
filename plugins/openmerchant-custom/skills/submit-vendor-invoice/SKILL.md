@@ -1,6 +1,6 @@
 ---
 name: submit-vendor-invoice
-description: Submit a vendor invoice to OpenMerchant from facts the user gives, an uploaded PDF or image, or both, then follow it through intake to payment. Use when the user asks to add, submit, upload, or forward a vendor bill or invoice to OpenMerchant.
+description: Add or submit a supplier bill or vendor invoice to the connected business account from supplied facts, a PDF or image, or both. Use for "add this bill", "submit this invoice", or "put this in our payment queue", even without naming OpenMerchant. Explaining or extracting an invoice alone does not authorize submission; existing payment-status questions use check-vendor-payments.
 ---
 
 # Submit a vendor invoice

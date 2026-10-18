@@ -1,6 +1,7 @@
 # OpenMerchant Custom
 
 Every OpenMerchant API tool for your account, from the conversation or a coding agent:
+find products and services for business purchases, check catalog prices and stock,
 submit and track vendor invoices, read payment status, manage purchase intents and
 approvals, payment methods, budgets and spending policies, and your merchant catalog.
 Submitted invoices from known vendors within your limits can be paid automatically
@@ -15,7 +16,11 @@ ChatGPT directories. For read-only questions about vendor payments, use the list
 Install the plugin and connect it. Your app opens OpenMerchant in the browser, where
 you sign in and choose the account and test or live mode. Only an account owner with a
 verified email can connect. The `submit-vendor-invoice` and `check-vendor-payments`
-skills cover the vendor payment workflow.
+skills cover the vendor payment workflow. `find-business-purchases` handles buying
+options and purchase status; `manage-merchant-store` handles your own listings,
+publication readiness, and integrations. Ask naturally, such as "find monitors for
+our new hires" or "what is blocking my store from publishing"; naming a connector
+or tool is unnecessary.
 
 ### Use a secret API key instead
 

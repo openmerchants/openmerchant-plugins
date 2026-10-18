@@ -1,7 +1,7 @@
 {
   "name": "openmerchant",
   "displayName": "OpenMerchant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ask about your OpenMerchant vendor invoices and payments: what got paid, what is scheduled, what is waiting for a person, and which vendors need to send payout details. It never starts a payment.",
   "author": {
     "name": "OpenMerchant",
@@ -11,7 +11,12 @@
   "homepage": "https://openmerchant.dev/connect/account",
   "repository": "https://github.com/openmerchants/openmerchant-plugins",
   "license": "MIT",
-  "keywords": ["payables", "invoices", "vendor-payments", "openmerchant"],
+  "keywords": [
+    "payables",
+    "invoices",
+    "vendor-payments",
+    "openmerchant"
+  ],
   "icon": "./assets/icon.png",
   "documentationUrl": "https://openmerchant.dev/connect/account",
   "supportUrl": "https://openmerchant.dev/support",

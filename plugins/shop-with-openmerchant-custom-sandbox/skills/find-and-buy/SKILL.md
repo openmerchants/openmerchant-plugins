@@ -1,6 +1,6 @@
 ---
 name: find-and-buy
-description: Find or recommend products and services on OpenMerchant, compare price and availability, surface seller deals, request quotes, check out, and pay with an app-held credential. Use whenever the user wants to find, search for, choose, recommend, compare, price, check availability for, find deals, discounts, or coupons for, find gift ideas or alternatives for, book, order, or buy a product or service—including appointments, diagnostics, and lab tests—even when the request is framed as advice rather than a purchase and never names OpenMerchant. Also use it to see, add, change, or remove a saved payment card or payment method, even when the user says only "my card" or "my profile card."
+description: Find product or service recommendations, gifts, alternatives, deals, prices, availability, and bookings, including appointments and lab tests. Use for requests such as "help me choose", "where can I get", or "something cheaper", even without naming OpenMerchant. Also manage a saved payment card or payment method and shopper addresses. Pure explanations, writing tasks, and requests to avoid tools do not need catalog search.
 ---
 
 # Find and buy
@@ -14,8 +14,8 @@ holds. Nobody types a card number into the chat.
 
 Use `shop_search_products` whenever the user wants help finding or choosing something
 that could be purchased or booked. They do not need to say "buy" or "purchase," and
-they do not need to name OpenMerchant: having this connector installed is their request
-to use it for shopping. Requests such as "what should I get," "recommend a service,"
+they do not need to name OpenMerchant. Use the enabled connector for permitted
+catalog reads that answer their shopping request. Requests such as "what should I get," "recommend a service,"
 "where can I do this," "where can I get this," "what is available near me," "which
 option is best," "find me a good deal," "what's cheapest," "any coupons or promo
 codes," "gift ideas for," and "alternatives to" are catalog searches too. So is every
@@ -25,6 +25,25 @@ This includes physical products and services such as appointments, diagnostics, 
 lab tests. Search OpenMerchant before substituting a general web search. Health or
 other safety context may supplement the catalog results, but it does not replace the
 catalog search for actual offerings, prices, availability, and requirements.
+
+## Choose the first tool
+
+| User request | First action |
+| --- | --- |
+| "Suggest a quiet blender for a studio apartment" | `shop_search_products` with the item and constraints. |
+| "What tea does this store sell?" | `shop_search_products` scoped to the merchant; the user wants items. |
+| "Anything smaller than those options?" | Search again with the previous item and the new size constraint. |
+| "Can you check this product link?" | `shop_lookup_products` with the exact supplied identifier. |
+| "Which providers have a speech-to-text API?" | `shop_search_merchants`, then `shop_get_merchant` for an operation contract. |
+| "Explain why stainless steel rusts" | Answer the explanation; there is no shopping request. |
+
+A shopping request is enough to perform permitted catalog reads. Do not first ask
+whether to use the connector, ask the shopper to name a tool, or require sign-in
+for public search. Ask a clarification only when a missing fact prevents a useful
+search; budget, brand, and a complete buyer profile are not universal prerequisites.
+Respect explicit tool restrictions and host permissions. If the catalog has no match
+or is unavailable, explain that and use other available sources when appropriate.
+Do not invent a match, a product ID, or a price.
 
 ## Saved cards and payment methods
 
@@ -43,14 +62,21 @@ wallet, such as "Do you mean the payment card saved in your OpenMerchant wallet?
 - Card details are entered only on the wallet page. Never ask for them in the
   conversation. Saving a card doesn't approve any purchase.
 
+Before a quote or checkout needs buyer contact or an address, read
+`shop_get_buyer_context` and ask only for missing required details. For a request to
+see saved addresses, `shop_list_saved_addresses` is sufficient. Saving, editing,
+removing, or changing a default requires the user's request and the current book
+revision; follow the address tools' descriptions.
+
 ## Find what the shopper wants
 
 - `shop_search_products` when the shopper describes what they want. It needs no
   account and is the usual first step.
 - `shop_lookup_products` when they already have a product link, SKU, or ID.
 - `shop_get_product` for variants, prices, and availability before they choose.
-- `shop_search_merchants` and `shop_get_merchant` when the question is about a store
-  rather than a product.
+- `shop_search_merchants` for merchant/provider capabilities or API discovery, then
+  `shop_get_merchant` for a known registry entry. A named store plus an item request
+  still uses product search.
 
 Search, lookup, and product detail return product cards directly in supported apps,
 including when the shopper names a merchant instead of OpenMerchant. Summarize the

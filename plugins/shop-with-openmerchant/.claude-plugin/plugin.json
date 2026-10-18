@@ -1,7 +1,7 @@
 {
   "name": "shop-with-openmerchant",
   "displayName": "Shop with OpenMerchant",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and prepare checkout. The shopper finishes paying on the merchant's site.",
   "author": {
     "name": "OpenMerchant",
@@ -11,7 +11,12 @@
   "homepage": "https://openmerchant.dev/connect/shop",
   "repository": "https://github.com/openmerchants/openmerchant-plugins",
   "license": "MIT",
-  "keywords": ["shopping", "commerce", "checkout", "openmerchant"],
+  "keywords": [
+    "shopping",
+    "commerce",
+    "checkout",
+    "openmerchant"
+  ],
   "icon": "./assets/icon.png",
   "documentationUrl": "https://openmerchant.dev/connect/shop",
   "supportUrl": "https://openmerchant.dev/support",

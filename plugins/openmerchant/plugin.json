@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "openmerchant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ask about your OpenMerchant vendor invoices and payments: what got paid, what is scheduled, what is waiting for a person, and which vendors need to send payout details. It never starts a payment.",
   "author": {
     "name": "OpenMerchant",
@@ -11,7 +11,12 @@
   "homepage": "https://openmerchant.dev/connect/account",
   "repository": "https://github.com/openmerchants/openmerchant-plugins",
   "license": "MIT",
-  "keywords": ["payables", "invoices", "vendor-payments", "openmerchant"],
+  "keywords": [
+    "payables",
+    "invoices",
+    "vendor-payments",
+    "openmerchant"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -20,7 +25,11 @@
         "longDescription": "Connect your OpenMerchant account to see your vendor invoices and payments: what was submitted, what got paid, what is scheduled, what is waiting for a person, and which vendors still need to send payout details. It can ask a vendor for missing payout details, which emails them a secure link. It never submits an invoice or approves, pays, cancels, or retries a payment; those stay in the OpenMerchant dashboard. You sign in with your OpenMerchant account and choose test or live mode.",
         "developerName": "OpenMerchant",
         "category": "Finance",
-        "capabilities": ["Read vendor invoices", "Read payment status", "Request vendor payout details"],
+        "capabilities": [
+          "Read vendor invoices",
+          "Read payment status",
+          "Request vendor payout details"
+        ],
         "websiteURL": "https://openmerchant.dev/connect/account",
         "supportURL": "https://openmerchant.dev/support",
         "privacyPolicyURL": "https://openmerchant.dev/privacy",

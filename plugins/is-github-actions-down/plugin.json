@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "is-github-actions-down",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check GitHub Actions status using official incidents and unusual visitor interest, with clear evidence and stale-data timestamps. Public and read-only.",
   "author": {
     "name": "OpenMerchant",
