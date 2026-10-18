@@ -50,11 +50,14 @@ wallet, such as "Do you mean the payment card saved in your OpenMerchant wallet?
 - `shop_search_merchants` and `shop_get_merchant` when the question is about a store
   rather than a product.
 
-Show the few results that fit with `shop_show_products`: pass each product's `id`
-and the `attribution_id` the search returned. The shopper sees them as product cards
-(or as a short list in apps without cards), so don't repeat every detail. Cards don't
-show deals, though, so still name any promotion and when it expires. Let the shopper
-choose.
+Search, lookup, and product detail return product cards directly in supported apps,
+including when the shopper names a merchant instead of OpenMerchant. Summarize the
+results briefly; there is no separate card-display step. Use `shop_show_products`
+only to curate or reorder a selection: pass each product's `id`, its exact
+`merchant` selector, and the `attribution_id` from the result's `analytics`.
+Respect the host's connector permissions and use the returned text when cards are
+unavailable. In your summary, still name any promotion and when it expires. Let the
+shopper choose.
 
 ## Answer price and availability from the exact item
 
