@@ -9,8 +9,8 @@ speaks the Model Context Protocol (MCP).
 | Plugin | For | What it does | MCP server | Sign-in |
 | --- | --- | --- | --- | --- |
 | `is-github-actions-down` | Developers | Check official Actions incidents and possible disruptions; read-only | `https://isgithubactionsdown.com/mcp` | None |
-| `shop-with-openmerchant` | Buyers | Find products, get quotes, and prepare a checkout; the shopper pays on the merchant's site | `https://openmerchant.dev/mcp/marketplace` (coming soon) | None |
-| `shop-with-openmerchant-custom` | Buyers | All of the above, plus paying in the conversation with a payment credential your app holds | `https://openmerchant.dev/mcp` | None |
+| `shop-with-openmerchant` | Buyers | Find products, get quotes, and check out in the conversation once the shopper confirms the total | `https://openmerchant.dev/mcp/marketplace` (coming soon) | None |
+| `shop-with-openmerchant-custom` | Buyers | The same tools, with the custom connector's fuller shopping guidance; only in this marketplace | `https://openmerchant.dev/mcp` | None |
 | `shop-with-openmerchant-custom-sandbox` | Developers testing buyer flows | `shop-with-openmerchant-custom` in test mode, with the sandbox catalog and test payments; installs beside it | `https://sandbox.openmerchant.dev/mcp` | None |
 | `openmerchant` | Sellers and businesses | Ask what got paid and what is waiting across your vendor invoices; never starts a payment | `https://api.openmerchant.dev/mcp/marketplace/v1` | OpenMerchant account |
 | `openmerchant-custom` | Sellers and businesses | Every OpenMerchant API tool, including submitting vendor invoices | `https://api.openmerchant.dev/mcp/v1` | OpenMerchant account, or a secret API key |
@@ -64,6 +64,9 @@ by version, so each skill update includes a version bump in both manifests; see
 - `plugins/<name>/`: one folder per plugin, with its Claude manifest
   (`.claude-plugin/plugin.json` and `.mcp.json`), its portable manifest for ChatGPT and
   Codex (`plugin.json` and `mcp.json`), its skills, README, license, and icon
+- `openai/<name>/`: plugins packaged only for OpenAI's plugin portal and uploaded there as
+  a ZIP; neither marketplace lists them. `openai/shop-with-openmerchant` is the ChatGPT
+  version of Shop with OpenMerchant, limited to physical goods.
 - `registry/`: entries for the official MCP registry
 
 This repository is published from OpenMerchant's main codebase, and each update replaces

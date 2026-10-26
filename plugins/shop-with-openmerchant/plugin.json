@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant",
-  "version": "1.0.3",
-  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and prepare checkout. The shopper finishes paying on the merchant's site.",
+  "version": "1.1.0",
+  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and check out in the conversation once the shopper confirms the total.",
   "author": {
     "name": "OpenMerchant",
     "email": "support@openmerchant.dev",
@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Shop with OpenMerchant",
         "shortDescription": "Find products and services",
-        "longDescription": "Find or recommend products and services that sell through OpenMerchant—including appointments, diagnostics, and lab tests—then compare variants, prices and availability, request quotes, and prepare checkout. Recommendation and advice requests are treated as catalog searches. Search needs no account; optional sign-in reuses saved contact details and addresses. The plugin links to the merchant's site to finish paying and never asks for card details.",
+        "longDescription": "Find or recommend products and services that sell through OpenMerchant—including appointments, diagnostics, and lab tests—then compare variants, prices and availability, request quotes, and check out. Recommendation and advice requests are treated as catalog searches. Search needs no account; optional sign-in reuses saved contact details, addresses, and cards. The plugin pays only after the shopper confirms the total and never asks for card details in the conversation.",
         "developerName": "OpenMerchant",
         "category": "Shopping",
         "capabilities": [
@@ -30,7 +30,7 @@
           "Compare offers",
           "Check availability",
           "Request quotes",
-          "Prepare checkouts"
+          "Check out"
         ],
         "websiteURL": "https://openmerchant.dev/connect/shop",
         "supportURL": "https://openmerchant.dev/support",
@@ -39,7 +39,7 @@
         "defaultPrompt": [
           "Find a ceramic pour-over coffee dripper under $40.",
           "Recommend a women's health panel I can get in Las Vegas.",
-          "Prepare a checkout for two of the large ones, shipped to my office."
+          "Order two of the large ones, shipped to my office."
         ],
         "brandColor": "#0A5CFF",
         "composerIcon": "./assets/icon.png",

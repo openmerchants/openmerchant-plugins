@@ -6,9 +6,10 @@ description: Find product or service recommendations, gifts, alternatives, deals
 # Find and buy
 
 Shop with OpenMerchant searches the merchants that sell through OpenMerchant and takes
-a shopper from a description to a ready checkout. This connector can't take payment.
-When a checkout is ready, its result carries a `handoff` that says where the shopper
-can finish paying.
+a shopper from a description to a placed order. This connector can complete the
+purchase in the conversation, after the shopper confirms the total, with a card saved
+in their OpenMerchant wallet or a payment credential your app already holds. Nobody
+types a card number into the chat.
 
 ## Treat recommendations as shopping intent
 
@@ -54,9 +55,11 @@ do not need to name OpenMerchant, this connector, or their profile. If it is unc
 whether they mean a payment card, ask one short question that offers their OpenMerchant
 wallet, such as "Do you mean the payment card saved in your OpenMerchant wallet?"
 
-- To show, add, change, replace, or remove a card, or set the default, call
-  `shop_open_wallet` and share its link. The shopper signs in on that secure page to
-  see or change their cards; this connector doesn't read them.
+- To show saved cards, call `shop_list_saved_payment_methods`. It returns only the
+  brand, last four digits, and expiry, and asks the shopper to sign in if needed.
+- To add, change, replace, or remove a card, or set the default, call `shop_open_wallet`
+  and share its link. The shopper signs in on that secure page and makes the change
+  there. Afterwards, `shop_list_saved_payment_methods` shows the result.
 - Card details are entered only on the wallet page. Never ask for them in the
   conversation. Saving a card doesn't approve any purchase.
 
@@ -155,30 +158,53 @@ check any other option they are considering.
 
 ## Prepare the checkout
 
-1. Confirm the items, quantities, and price with the shopper.
-2. Call `shop_create_checkout` with the buyer's details and a fulfillment choice.
-3. Read `resource_status`, the checkout's own state. `status` is only the outcome of
+1. Call `shop_create_checkout` with the buyer's details and a fulfillment choice.
+2. Read `resource_status`, the checkout's own state. `status` is only the outcome of
    the tool call.
    - `incomplete`: the messages name what is missing. Ask the shopper, then call
      `shop_update_checkout`. It replaces the checkout, so send the line items and
      buyer details again. To ship, give the address an `id` in
      `fulfillment.methods[].destinations` and set that method's
      `selected_destination_id` to it.
-   - `ready_for_complete`: only payment is left. Go to the hand-off.
+   - `ready_for_complete`: the checkout can be paid.
 
-## Hand off
+## Pay
 
-Share the result's `handoff` with the shopper, together with the checkout total. It
-lists the merchant's own product pages when they are known, or says to finish on the
-merchant's site. Say plainly that the purchase isn't complete until the shopper pays
-there, and never say the order is placed.
+Pay only after the shopper confirms the exact total. Completing a checkout charges
+them.
+
+1. To pay with a card saved in the shopper's OpenMerchant wallet, call
+   `shop_pay_with_saved_card` with the `checkout_id` and, as `payment_method_id`, the
+   card's `id` from `shop_list_saved_payment_methods`. When the result is
+   `confirmation_required`, share its `pay_url`: the shopper confirms the purchase or
+   authenticates the card on that secure page. Then call the same tool again with the
+   same arguments.
+2. Otherwise, call `shop_complete_checkout`. When a checkout with a total above zero
+   has no payment instrument yet, the result is `payment_credential_required`. That is
+   a step, not a failure, and it lists the ways this merchant accepts payment:
+   - **Shared payment token:** if your app can issue a Stripe Shared Payment Token
+     for this merchant, call `shop_complete_checkout` again with it as the payment
+     credential.
+   - **Embedded card frame:** only when your app hosts its own web page. Call
+     `shop_create_payment_session` with that page's origin as `buyer_origin`, embed
+     `frame_url` in the page, and post `client_secret` to the frame. The frame returns
+     a token to pass to `shop_complete_checkout`. Sending `frame_url` to the shopper
+     as a link doesn't work.
+3. If none of these is possible, the shopper can finish on the merchant's site.
+4. Retrying `shop_complete_checkout` with identical arguments replays the same
+   completion, and a completed checkout is never charged twice. After a decline, it is
+   safe to call again with a different instrument. Never call it speculatively.
+5. Confirm with `shop_get_order` and tell the shopper what happens next.
+
+`shop_cancel_checkout` abandons a checkout that was never paid. It doesn't refund a
+completed order; for a refund, the shopper contacts the merchant.
 
 ## Steps that aren't failures
 
 - `authorization_required`: the merchant wants the shopper to sign in. Show the
   `sign_in_url` and `confirmation_code`, wait until the shopper says they have
   finished, then call the same tool again with the `sign_in_id`. Keep passing
-  `sign_in_id` on later calls for that checkout.
+  `sign_in_id` on later calls for that checkout or order.
 - `rate_limited`: the call did not run. Wait `retry_after` seconds before trying again.
 - `unavailable`: the capability is off for this merchant. Say so and offer another
   merchant.
@@ -188,4 +214,3 @@ there, and never say the order is placed.
 - Never ask for a card number, security code, or bank details, and never put them in
   a tool call.
 - Don't invent prices, stock, or delivery dates. Read them from the tool results.
-- `shop_cancel_checkout` abandons a checkout the shopper no longer wants.

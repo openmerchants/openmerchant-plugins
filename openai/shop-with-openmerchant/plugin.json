@@ -1,0 +1,49 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "shop-with-openmerchant",
+  "version": "1.1.0",
+  "description": "Find physical products from merchants on OpenMerchant, compare price and availability, request quotes, and check out in ChatGPT once you confirm the total. Physical goods only.",
+  "author": {
+    "name": "OpenMerchant",
+    "email": "support@openmerchant.dev",
+    "url": "https://openmerchant.dev"
+  },
+  "homepage": "https://openmerchant.dev/connect/shop",
+  "repository": "https://github.com/openmerchants/openmerchant-plugins",
+  "license": "MIT",
+  "keywords": [
+    "shopping",
+    "commerce",
+    "checkout",
+    "openmerchant"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Shop with OpenMerchant",
+        "shortDescription": "Find and buy physical products",
+        "longDescription": "Find physical products from merchants that sell through OpenMerchant, compare variants, prices, and availability, request a quote when an item needs one, and check out with your shipping details. Nothing is paid until you confirm the exact total. The plugin then pays with a card saved in your OpenMerchant wallet, and OpenMerchant's secure page asks you to approve or authenticate the payment when it needs to; you can also pay on that page directly. It never asks for card details in ChatGPT. Searching needs no account, and optional OpenMerchant sign-in reuses your saved contact details, addresses, and cards. Limitations: physical goods only, so it doesn't sell services, appointments, lab tests, travel, subscriptions, or digital products.",
+        "developerName": "OpenMerchant",
+        "category": "Other",
+        "capabilities": [
+          "Find physical products",
+          "Compare prices and availability",
+          "Request quotes",
+          "Check out with a saved card"
+        ],
+        "websiteURL": "https://openmerchant.dev/connect/shop",
+        "supportURL": "https://openmerchant.dev/support",
+        "privacyPolicyURL": "https://openmerchant.dev/privacy",
+        "termsOfServiceURL": "https://openmerchant.dev/terms",
+        "defaultPrompt": [
+          "Find a gift for a coffee lover under $30.",
+          "Compare porcelain coffee sets for two.",
+          "Check out the coffee set and have it delivered to my saved address."
+        ],
+        "brandColor": "#0A5CFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

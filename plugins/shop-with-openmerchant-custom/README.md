@@ -1,10 +1,10 @@
 # Shop with OpenMerchant Custom
 
 Find products from merchants that sell through OpenMerchant, compare options, get
-quotes, build a cart, and check out without leaving the conversation. Unlike the listed
-Shop with OpenMerchant plugin, this version can also complete the purchase, when your
-app can supply a payment credential the merchant accepts, such as a Stripe Shared
-Payment Token. Otherwise the shopper finishes on the merchant's site.
+quotes, build a cart, and check out without leaving the conversation. Like the listed
+Shop with OpenMerchant plugin, it can complete the purchase, when your app can supply a
+payment credential the merchant accepts, such as a Stripe Shared Payment Token.
+Otherwise the shopper finishes on the merchant's site.
 
 This plugin is distributed only through this marketplace, not through the Claude or
 ChatGPT directories.

@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "dev.openmerchant/shop",
   "title": "Shop with OpenMerchant",
-  "description": "Find and recommend products or services on OpenMerchant, compare price and availability, reuse saved buyer details for quotes, and prepare checkout.",
-  "version": "1.0.1",
+  "description": "Find and recommend products or services on OpenMerchant, compare price and availability, reuse saved buyer details for quotes, and check out once the shopper confirms the total.",
+  "version": "1.1.0",
   "websiteUrl": "https://openmerchant.dev/connect/shop",
   "icons": [
     {
