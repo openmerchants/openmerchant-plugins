@@ -60,6 +60,21 @@ When a price carries a seller discount, report the price as given: a fiat price'
 `original_amount` is its pre-discount price, and a quote offer's
 `dev.openmerchant.promotion` gives the discount and its `expires_at`.
 
+## Addresses come from the shopper's profile
+
+This plugin ships only to addresses saved on the shopper's OpenMerchant profile. It never
+takes a typed-in street, city, or postal code, so shipping and delivery need the shopper
+signed in with a saved address.
+
+- `shop_get_buyer_context` lists the saved addresses, their IDs, and the shipping,
+  billing, and pickup defaults. Suggest the matching default, or ask which saved address
+  to use.
+- When none is suitable, share the `address_book_url` it returns. The shopper adds or
+  edits the address on their OpenMerchant profile; call `shop_get_buyer_context` again
+  to get its ID.
+- Search results and quotes without an address use the approximate location ChatGPT
+  shares, so prices, shipping, and tax are estimates until a saved address is chosen.
+
 ## Get a quote when the item requires one
 
 For a quote-required or quoted-price product:
@@ -67,6 +82,9 @@ For a quote-required or quoted-price product:
 - Read the exact variant's `requirements`, then call `shop_get_buyer_context` to reuse
   saved contact details and addresses. Ask only for required values that are still
   missing.
+- For a shipping or delivery price, pass the chosen saved address's ID as
+  `fulfillment.address_id`. Before buying, request the quote again with the saved
+  address if the first one was an estimate.
 - Call `shop_request_quote`. If the quote is pending, check it with `shop_get_quote`.
 - Keep the access token it returns. It is shown once, and `shop_get_quote` and
   `shop_refresh_quote` need it.
@@ -84,7 +102,9 @@ For a quote-required or quoted-price product:
 ## Prepare the checkout
 
 1. Call `shop_create_checkout` with the buyer's details and a shipping, delivery, or
-   pickup choice.
+   pickup choice. For shipping or delivery, set
+   `fulfillment.methods[].selected_destination_id` to a saved address's ID, or leave it
+   unset to use the shopper's default. Merchant pickup uses the store's location ID.
 2. Read `resource_status`, the checkout's own state. `status` is only the outcome of the
    tool call.
    - `incomplete`: the messages name what is missing. Ask the shopper, then call

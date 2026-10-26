@@ -33,11 +33,16 @@ portal's forms, never in the ZIP.
 The plugin connects to OpenMerchant's MCP server at
 `https://openmerchant.dev/mcp/openai`, operated by OpenMerchant. It sends your search
 terms and the products and quantities you choose and, when you sign in, the saved buyer
-details a quote or checkout needs, such as name, email, phone, and shipping address, and
-which saved card to pay with. OpenMerchant passes required quote, cart, and checkout
-details to the merchant selling the items, and uses your card only to pay for that
-checkout. The plugin never asks for or sends card numbers. See the
-[privacy policy](https://openmerchant.dev/privacy).
+details a quote or checkout needs, such as name, email, and phone, the ID of the saved
+address to ship to, and which saved card to pay with. Its tools never take a street,
+city, or postal code: addresses are added on your OpenMerchant profile. ChatGPT also
+shares an approximate location with each request; OpenMerchant uses its country, region,
+and a ZIP code estimated from its coordinates to show local prices and estimate shipping
+and tax. OpenMerchant passes required quote, cart, and checkout details to the merchant
+selling the items, and uses your card only to pay for that checkout. The plugin never
+asks for or sends card numbers. See the
+[Shop with OpenMerchant privacy notice](https://openmerchant.dev/shop-privacy), which
+supplements the [privacy policy](https://openmerchant.dev/privacy).
 
 ## Help
 
