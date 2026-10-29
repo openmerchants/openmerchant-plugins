@@ -3,8 +3,9 @@
 The ChatGPT version of Shop with OpenMerchant, packaged for OpenAI's plugin portal. It
 finds physical products from merchants that sell through OpenMerchant, compares price and
 availability, requests quotes, and checks out once the shopper confirms the total: it pays
-with a card saved in the shopper's OpenMerchant wallet, and OpenMerchant's secure page
-takes any approval or card authentication. It never asks for card details.
+with a card saved in the shopper's OpenMerchant wallet after ChatGPT asks the shopper to
+approve the checkout tool call in the conversation. OpenMerchant's secure page appears
+only if the exact selected card needs authentication. It never asks for card details.
 
 OpenAI's plugin guidelines allow commerce for physical goods only, so this package and its
 server are limited to them. It connects to its own server,

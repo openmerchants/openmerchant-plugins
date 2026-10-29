@@ -1,8 +1,8 @@
 {
   "name": "shop-with-openmerchant-custom",
   "displayName": "Shop with OpenMerchant Custom",
-  "version": "1.0.3",
-  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and complete purchases with an app-held payment credential.",
+  "version": "1.0.4",
+  "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and complete purchases with a saved card or app-held payment credential after in-chat approval.",
   "author": {
     "name": "OpenMerchant",
     "email": "support@openmerchant.dev",

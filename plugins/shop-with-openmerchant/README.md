@@ -2,9 +2,11 @@
 
 Find products from merchants that sell through OpenMerchant, compare options, get
 quotes, build a cart, and check out without leaving the conversation. Once the shopper
-confirms the total, it pays with a card saved in their OpenMerchant wallet or with a
-payment credential your app can supply, such as a Stripe Shared Payment Token.
-Otherwise the shopper finishes on the merchant's site.
+confirms the total, the client asks them to approve the checkout tool call in the
+conversation. It then pays with the selected card from their OpenMerchant wallet or
+with a payment credential your app can supply, such as a Stripe Shared Payment Token.
+A secure OpenMerchant page appears only if the selected saved card needs
+authentication. Otherwise the shopper finishes on the merchant's site.
 
 **Coming soon:** this plugin's server address, `https://openmerchant.dev/mcp/marketplace`,
 goes live with its directory listing. Until then, use `shop-with-openmerchant-custom`.
@@ -15,11 +17,11 @@ Install the plugin, then ask for what you want, for example "Recommend a women's
 health panel I can get in Las Vegas." Recommendations for products or services count
 as shopping searches; the user does not need to say "buy." The `find-and-buy` skill
 walks through the steps: search, choose, cart, checkout, and payment. It confirms the
-total with the shopper before paying. No OpenMerchant account is needed to search.
-Optional OpenMerchant sign-in lets the connector reuse saved contact details,
-addresses, and cards instead of asking again. Some merchants separately ask the
-shopper to sign in with them before checkout; the plugin then shows a sign-in link and
-a confirmation code.
+total with the shopper before asking them to approve the destructive checkout call in
+the conversation. No OpenMerchant account is needed to search. Optional OpenMerchant
+sign-in lets the connector reuse saved contact details, addresses, and cards instead
+of asking again. Some merchants separately ask the shopper to sign in with them before
+checkout; the plugin then shows a sign-in link and a confirmation code.
 
 ## Data it sends
 

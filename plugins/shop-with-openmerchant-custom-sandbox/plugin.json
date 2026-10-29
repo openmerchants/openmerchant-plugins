@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant-custom-sandbox",
-  "version": "1.0.3",
-  "description": "Test mode of Shop with OpenMerchant Custom: find products or services in the OpenMerchant sandbox catalog, request quotes, and complete test purchases with an app-held test payment credential.",
+  "version": "1.0.4",
+  "description": "Test Shop with OpenMerchant Custom: find products or services in the sandbox catalog and complete test purchases with a saved test card or app-held credential after in-chat approval.",
   "author": {
     "name": "OpenMerchant",
     "email": "support@openmerchant.dev",
@@ -24,7 +24,7 @@
       "interface": {
         "displayName": "Shop with OpenMerchant Custom (Sandbox)",
         "shortDescription": "Test shopping and checkout",
-        "longDescription": "The test-mode version of Shop with OpenMerchant Custom. Find or recommend products and services in the OpenMerchant sandbox catalog, compare price and availability, request quotes, and complete test purchases when your app supplies a test payment credential. Install it beside Shop with OpenMerchant Custom to try changes without touching live merchants or live payments. Search needs no account; optional sign-in reuses saved contact details and addresses. Card numbers never pass through the chat.",
+        "longDescription": "The test-mode version of Shop with OpenMerchant Custom. Find or recommend products and services in the OpenMerchant sandbox catalog, compare price and availability, request quotes, and complete test purchases with a saved test card or a test payment credential supplied by your app. Install it beside Shop with OpenMerchant Custom to try changes without touching live merchants or live payments. Search needs no account; optional sign-in reuses saved contact details, addresses, and test cards. After the shopper confirms the exact total, the client asks them to approve the checkout tool call in the conversation. A secure OpenMerchant page appears only if the selected saved test card needs authentication. Card numbers never pass through the chat.",
         "developerName": "OpenMerchant",
         "category": "Shopping",
         "capabilities": [

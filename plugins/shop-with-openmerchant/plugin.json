@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find and recommend products or services from merchants on OpenMerchant, compare price and availability, request quotes, and check out in the conversation once the shopper confirms the total.",
   "author": {
     "name": "OpenMerchant",
@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Shop with OpenMerchant",
         "shortDescription": "Find products and services",
-        "longDescription": "Find or recommend products and services that sell through OpenMerchant—including appointments, diagnostics, and lab tests—then compare variants, prices and availability, request quotes, and check out. Recommendation and advice requests are treated as catalog searches. Search needs no account; optional sign-in reuses saved contact details, addresses, and cards. The plugin pays only after the shopper confirms the total and never asks for card details in the conversation.",
+        "longDescription": "Find or recommend products and services that sell through OpenMerchant—including appointments, diagnostics, and lab tests—then compare variants, prices and availability, request quotes, and check out. Recommendation and advice requests are treated as catalog searches. Search needs no account; optional sign-in reuses saved contact details, addresses, and cards. After the shopper confirms the exact total, the client asks them to approve the checkout tool call in the conversation. A secure OpenMerchant page appears only if the selected saved card needs authentication. The plugin never asks for card details in the conversation.",
         "developerName": "OpenMerchant",
         "category": "Shopping",
         "capabilities": [

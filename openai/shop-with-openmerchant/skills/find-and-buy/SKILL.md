@@ -121,12 +121,14 @@ them.
    `shop_list_saved_payment_methods`. It returns only the brand, last four digits, and
    expiry, and asks the shopper to sign in if needed. To add or change a card, call
    `shop_open_wallet` and share its link.
-2. Call `shop_pay_with_saved_card` with the `checkout_id` and, as `payment_method_id`,
-   the chosen card's `id`. When the result is `confirmation_required`, share its
-   `pay_url`: the shopper confirms the purchase or authenticates the card on that
-   secure OpenMerchant page. Then call the same tool again with the same arguments.
-3. A checkout result can also carry a `pay_url` for OpenMerchant's secure checkout
-   page, where the shopper can review the order and pay in the browser.
+2. Call `shop_complete_checkout` with the `checkout_id` and the chosen card's `id` as
+   `payment_method_id`. ChatGPT asks the shopper to approve that destructive tool call
+   in the conversation; ordinary checkout approval does not require a browser page.
+3. If that call returns `payment_credential_required` with a `confirmation_url`, the
+   exact selected card needs authentication. Share that URL only for card
+   authentication, wait for the shopper to finish, then retry
+   `shop_complete_checkout` with the same `checkout_id` and `payment_method_id`. Do
+   not select a different card or change between test and live mode.
 4. Confirm with `shop_get_order` and tell the shopper what happens next. Until the order
    is confirmed, say that the purchase isn't complete.
 
@@ -138,8 +140,8 @@ completed order; for a refund, the shopper contacts the merchant.
 - `authorization_required`: the merchant wants the shopper to sign in. Show the
   `sign_in_url` and `confirmation_code`, wait until the shopper says they have finished,
   then call the same tool again with the `sign_in_id`.
-- `confirmation_required`: the shopper approves the payment or authenticates the card
-  at the `pay_url`, then the same call is retried.
+- `payment_credential_required` with `confirmation_url`: the exact selected card needs
+  authentication at that secure URL, then the same call is retried with the same card.
 - `rate_limited`: the call did not run. Wait `retry_after` seconds before trying again.
 - `unavailable`: the capability is off for this merchant. Say so.
 

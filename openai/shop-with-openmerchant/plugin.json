@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shop-with-openmerchant",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Find physical products from merchants on OpenMerchant, compare price and availability, request quotes, and check out in ChatGPT once you confirm the total. Physical goods only.",
   "author": {
     "name": "OpenMerchant",
@@ -22,7 +22,7 @@
       "interface": {
         "displayName": "Shop with OpenMerchant",
         "shortDescription": "Find and buy physical products",
-        "longDescription": "Find physical products from merchants that sell through OpenMerchant, compare variants, prices, and availability, request a quote when an item needs one, and check out to an address saved on your OpenMerchant profile. Nothing is paid until you confirm the exact total. The plugin then pays with a card saved in your OpenMerchant wallet, and OpenMerchant's secure page asks you to approve or authenticate the payment when it needs to; you can also pay on that page directly. It never asks for card details in ChatGPT. Searching needs no account; prices and shipping estimates follow the approximate location ChatGPT shares. Signing in to OpenMerchant reuses your saved contact details, addresses, and cards, and delivery goes only to an address you saved on your profile. Limitations: physical goods only, so it doesn't sell services, appointments, lab tests, travel, subscriptions, or digital products.",
+        "longDescription": "Find physical products from merchants that sell through OpenMerchant, compare variants, prices, and availability, request a quote when an item needs one, and check out to an address saved on your OpenMerchant profile. Nothing is paid until you confirm the exact total. ChatGPT then asks you to approve the checkout tool call in the conversation and pays with the selected card from your OpenMerchant wallet. A secure OpenMerchant page appears only if that exact card needs authentication. It never asks for card details in ChatGPT. Searching needs no account; prices and shipping estimates follow the approximate location ChatGPT shares. Signing in to OpenMerchant reuses your saved contact details, addresses, and cards, and delivery goes only to an address you saved on your profile. Limitations: physical goods only, so it doesn't sell services, appointments, lab tests, travel, subscriptions, or digital products.",
         "developerName": "OpenMerchant",
         "category": "Other",
         "capabilities": [

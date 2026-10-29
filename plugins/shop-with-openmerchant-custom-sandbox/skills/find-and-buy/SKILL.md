@@ -7,8 +7,10 @@ description: Find product or service recommendations, gifts, alternatives, deals
 
 Shop with OpenMerchant searches the merchants that sell through OpenMerchant and takes
 a shopper from a description to a placed order. This connector can complete the
-purchase in the conversation, but only with a payment credential your app already
-holds. Nobody types a card number into the chat.
+purchase in the conversation, after the shopper confirms the total, with a card saved
+in their OpenMerchant wallet or a payment credential your app already holds. The
+client asks the shopper to approve the checkout tool call in the conversation. Nobody
+types a card number into the chat.
 
 ## Treat recommendations as shopping intent
 
@@ -174,9 +176,19 @@ check any other option they are considering.
 Pay only after the shopper confirms the exact total. Completing a checkout charges
 them.
 
-1. Call `shop_complete_checkout`. When a checkout with a total above zero has no
-   payment instrument yet, the result is `payment_credential_required`. That is a
-   step, not a failure, and it lists the ways this merchant accepts payment:
+1. For a card saved in the shopper's OpenMerchant wallet, call
+   `shop_list_saved_payment_methods` and let the shopper choose from the masked cards.
+   Call `shop_complete_checkout` with the `checkout_id` and the chosen card's `id` as
+   `payment_method_id`. The client asks the shopper to approve that destructive tool
+   call in the conversation; ordinary checkout approval does not require a browser
+   page.
+2. If that call returns `payment_credential_required` with a `confirmation_url`, the
+   exact selected card needs authentication. Share that URL only for card
+   authentication, wait for the shopper to finish, then retry
+   `shop_complete_checkout` with the same `checkout_id` and `payment_method_id`. Do
+   not select a different card or change between test and live mode.
+3. When no saved card was selected, `payment_credential_required` is a step, not a
+   failure, and it lists the other ways this merchant accepts payment:
    - **Shared payment token:** if your app can issue a Stripe Shared Payment Token
      for this merchant, call `shop_complete_checkout` again with it as the payment
      credential.
@@ -185,11 +197,11 @@ them.
      `frame_url` in the page, and post `client_secret` to the frame. The frame returns
      a token to pass to `shop_complete_checkout`. Sending `frame_url` to the shopper
      as a link doesn't work.
-2. If your app can do neither, the shopper can finish on the merchant's site.
-3. Retrying `shop_complete_checkout` with identical arguments replays the same
+4. If none of these is possible, the shopper can finish on the merchant's site.
+5. Retrying `shop_complete_checkout` with identical arguments replays the same
    completion, and a completed checkout is never charged twice. After a decline, it is
    safe to call again with a different instrument. Never call it speculatively.
-4. Confirm with `shop_get_order` and tell the shopper what happens next.
+6. Confirm with `shop_get_order` and tell the shopper what happens next.
 
 `shop_cancel_checkout` abandons a checkout that was never paid. It doesn't refund a
 completed order; for a refund, the shopper contacts the merchant.
